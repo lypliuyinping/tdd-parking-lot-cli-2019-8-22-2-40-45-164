@@ -2,6 +2,8 @@ package com.oocl.cultivation;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.logging.ErrorManager;
+
 public class ParkingBoy {
 
     private final ParkingLot parkingLot;
@@ -14,6 +16,13 @@ public class ParkingBoy {
     public ParkingTicket park(Car car) {
     	  // TODO: Please implement the method
     	ParkingTicket ticket=parkingLot.park(car);
+    	if (ticket!=null) {
+    		lastErrorMessage=null;	
+		}
+    	if (this.parkingLot.getAvailableParkingPosition()<1) {
+    		lastErrorMessage="The parking lot is full.";
+    		return null;
+		}
     	return ticket; 
     }
 
@@ -24,6 +33,9 @@ public class ParkingBoy {
 			return null;
 		}
         Car car=parkingLot.fetch(ticket);
+        if (car==null) {
+        	lastErrorMessage="Unrecognized parking ticket.";
+		}
         return car;
     }
 
