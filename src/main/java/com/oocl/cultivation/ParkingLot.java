@@ -25,10 +25,10 @@ public class ParkingLot {
   	}
 
 	public Car fetch(ParkingTicket ticket) {
-		if (!cars.containsValue(ticket)) {
+		// TODO Auto-generated method stub
+		if (!cars.containsKey(ticket)) {
 			return null;
 		}
-		// TODO Auto-generated method stub
 		return cars.remove(ticket);
 	}
 }

@@ -37,6 +37,7 @@ public class ParkingBoy {
         	lastErrorMessage="Unrecognized parking ticket.";
 		}
         return car;
+        
     }
 
     public String getLastErrorMessage() {
